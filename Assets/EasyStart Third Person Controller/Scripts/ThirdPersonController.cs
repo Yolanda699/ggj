@@ -35,6 +35,7 @@ public class ThirdPersonController : MonoBehaviour
     public Vector3 respawnPosition;  // 存储出生点的位置
     private Renderer characterRenderer;  // 角色的渲染器
     private bool isDead = false;  // 角色是否死亡的状态
+    public GameObject deathPopupUI;
 
     void Start()
     {
@@ -49,6 +50,11 @@ public class ThirdPersonController : MonoBehaviour
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
 
         respawnPosition = transform.position;
+
+        if (deathPopupUI != null)
+        {
+            deathPopupUI.SetActive(false); // New line
+        }
     }
 
     void Update()
@@ -202,6 +208,11 @@ public class ThirdPersonController : MonoBehaviour
     {
         Debug.Log("角色死亡！");
 
+        if (deathPopupUI != null)
+        {
+            deathPopupUI.SetActive(true); // Show the UI
+        }
+
         // 隐藏角色
         if (characterRenderer != null)
         {
@@ -224,7 +235,12 @@ public class ThirdPersonController : MonoBehaviour
     private IEnumerator RespawnAfterDelay()
     {
         // 等待5秒钟
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+
+        if (deathPopupUI != null)
+        {
+            deathPopupUI.SetActive(false); // Hide the UI
+        }
 
         // 复活角色
         Respawn();
