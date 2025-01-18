@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MovingBubble : MonoBehaviour
 {
-    public Vector3 startPosition; // 初始位置
+    public Vector3 startPosition; 
     public Vector3 endPosition;   // 移动的目标位置
     public float moveDuration = 4f; // 移动持续时间（秒）
     public float minInterval = 1f; // 最小间隔时间（秒）
