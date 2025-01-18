@@ -45,6 +45,7 @@ public class MakeGum : MonoBehaviour
                 isGumActive = !isGumActive; // Toggle the gum state
                 gum.SetActive(isGumActive);
                 Debug.Log("Gum is now " + (isGumActive ? "Active" : "Inactive"));
+                Destroy(hintText);
             }
         }
         else
