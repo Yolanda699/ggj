@@ -3038,6 +3038,22 @@ PrefabInstance:
       propertyPath: deathPopupUI
       value: 
       objectReference: {fileID: 1708589571}
+    - target: {fileID: 3310129599138967072, guid: 268bbd229edfdba45a4d45903e472716, type: 3}
+      propertyPath: objectsToReactivate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310129599138967072, guid: 268bbd229edfdba45a4d45903e472716, type: 3}
+      propertyPath: 'objectsToReactivate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1138300707}
+    - target: {fileID: 3310129599138967072, guid: 268bbd229edfdba45a4d45903e472716, type: 3}
+      propertyPath: 'objectsToReactivate.Array.data[1]'
+      value: 
+      objectReference: {fileID: 313737821}
+    - target: {fileID: 3310129599138967072, guid: 268bbd229edfdba45a4d45903e472716, type: 3}
+      propertyPath: 'objectsToReactivate.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1164955161}
     - target: {fileID: 3510585859247433107, guid: 268bbd229edfdba45a4d45903e472716, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -4690,11 +4706,11 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1310000368}
-  - {fileID: 1589733910}
+  - {fileID: 313737825}
   - {fileID: 1138300712}
+  - {fileID: 1589733910}
   - {fileID: 925760828}
   - {fileID: 1729955010}
-  - {fileID: 313737825}
   - {fileID: 1448166604}
   - {fileID: 1208882670}
   - {fileID: 1303408319}

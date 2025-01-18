@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
@@ -31,6 +32,9 @@ public class ThirdPersonController : MonoBehaviour
 
     Animator animator;
     CharacterController cc;
+
+    [Tooltip("Objects to reactivate during respawn.")]
+    public List<GameObject> objectsToReactivate; // List of objects to activate on respawn
 
     public Vector3 respawnPosition;  // 存储出生点的位置
     private Renderer characterRenderer;  // 角色的渲染器
@@ -234,12 +238,21 @@ public class ThirdPersonController : MonoBehaviour
 
     private IEnumerator RespawnAfterDelay()
     {
-        // 等待5秒钟
+        // 等待3秒钟
         yield return new WaitForSeconds(3f);
 
         if (deathPopupUI != null)
         {
             deathPopupUI.SetActive(false); // Hide the UI
+        }
+
+        // Reactivate all objects in the list
+        foreach (GameObject obj in objectsToReactivate)
+        {
+            if (obj != null) // Ensure the object still exists
+            {
+                obj.SetActive(true);
+            }
         }
 
         // 复活角色
@@ -267,5 +280,10 @@ public class ThirdPersonController : MonoBehaviour
         isDead = false;
 
         Debug.Log("角色复活！");
+
+        foreach (GameObject pickup in GameObject.FindGameObjectsWithTag("Pickup"))
+        {
+            pickup.SetActive(true);
+        }
     }
 }

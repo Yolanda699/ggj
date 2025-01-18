@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class DeactivateOnDestroy : MonoBehaviour
+public class Deactivate : MonoBehaviour
 {
-    public GameObject targetToDeactivate; // Assign the GameObject to deactivate in the Inspector
+    [Tooltip("The GameObject to deactivate when this object is set inactive.")]
+    public GameObject targetToDeactivate; // Assign the GameObject in the Inspector
 
-    void OnDestroy()
+    void OnDisable()
     {
+        // Check if the target object is assigned
         if (targetToDeactivate != null)
         {
+            // Set the target GameObject inactive
             targetToDeactivate.SetActive(false);
         }
     }

@@ -54,7 +54,7 @@ public class ItemPickup : MonoBehaviour
                 }
 
                 // 销毁该物体
-                Destroy(hit.gameObject);
+                hit.gameObject.SetActive(false);
                 break; // 只处理一个物体，可视需求调整
             }
         }

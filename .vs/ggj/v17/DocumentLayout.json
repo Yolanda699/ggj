@@ -3,11 +3,27 @@
   "WorkspaceRootPath": "C:\\GameProject\\GJJ 2025\\ggj\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\easystart third person controller\\scripts\\thirdpersoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\easystart third person controller\\scripts\\thirdpersoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\deactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\deactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\interactiveobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactiveobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\movingbubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\movingbubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -17,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\interactiveobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactiveobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,24 +42,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MovingBubble.cs",
-              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MovingBubble.cs",
-              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
-              "RelativeToolTip": "Assets\\Script\\MovingBubble.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Deactive.cs",
+              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\Deactive.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Deactive.cs",
+              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\Deactive.cs",
+              "RelativeToolTip": "Assets\\Script\\Deactive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T20:54:23.897Z",
+              "WhenOpened": "2025-01-18T22:24:02.166Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ThirdPersonController.cs",
+              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "RelativeToolTip": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAowP8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T22:21:50.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
@@ -59,12 +80,11 @@
               "RelativeToolTip": "Assets\\Script\\GameManager.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAiwDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T20:28:14.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T20:28:14.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "MakeGum.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MakeGum.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MakeGum.cs",
@@ -76,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Interactable.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\Interactable.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Interactable.cs",
@@ -88,27 +108,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "InteractiveObject.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\InteractiveObject.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\InteractiveObject.cs",
               "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\InteractiveObject.cs",
               "RelativeToolTip": "Assets\\Script\\InteractiveObject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAiwDgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:55:40.419Z"
+              "WhenOpened": "2025-01-18T17:55:40.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "CameraController.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
               "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
               "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
               "RelativeToolTip": "Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAkwFwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAmwFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T11:01:15.127Z"
+              "WhenOpened": "2025-01-18T11:01:15.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MovingBubble.cs",
+              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MovingBubble.cs",
+              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
+              "RelativeToolTip": "Assets\\Script\\MovingBubble.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T20:54:23.897Z",
+              "EditorCaption": ""
             }
           ]
         }

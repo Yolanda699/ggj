@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\GameProject\\GJJ 2025\\ggj\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\movingbubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\movingbubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -35,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MovingBubble.cs",
+              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MovingBubble.cs",
+              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
+              "RelativeToolTip": "Assets\\Script\\MovingBubble.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T20:54:23.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MakeGum.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MakeGum.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MakeGum.cs",
@@ -55,12 +72,11 @@
               "RelativeToolTip": "Assets\\Script\\MakeGum.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T19:42:07.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T19:42:07.469Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Interactable.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\Interactable.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Interactable.cs",
@@ -72,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InteractiveObject.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\InteractiveObject.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\InteractiveObject.cs",
@@ -84,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CameraController.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
               "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
