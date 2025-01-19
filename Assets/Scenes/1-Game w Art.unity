@@ -3365,7 +3365,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5526,7 +5526,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8027,7 +8027,6 @@ GameObject:
   - component: {fileID: 1138300710}
   - component: {fileID: 1138300709}
   - component: {fileID: 1138300708}
-  - component: {fileID: 1138300713}
   m_Layer: 0
   m_Name: Gum 1
   m_TagString: Pickup
@@ -8152,19 +8151,6 @@ Transform:
   - {fileID: 2115734566}
   m_Father: {fileID: 2127018069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1138300713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138300707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a9f12a8c898d342a2994b8b379c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetToDeactivate: {fileID: 0}
 --- !u!1 &1152205316
 GameObject:
   m_ObjectHideFlags: 0
@@ -13473,7 +13459,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13696,7 +13682,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
