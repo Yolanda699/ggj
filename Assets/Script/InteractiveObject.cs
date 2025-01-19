@@ -2,20 +2,18 @@
 
 public class ItemPickup : MonoBehaviour
 {
-    public Camera mainCamera; // Main camera
-    public AudioClip chewingSound; // Audio for chewing
-    private AudioSource audioSource; // Audio source for playing sounds
-    public Material highlightMaterial; // Highlight material
-    private Material originalMaterial; // Original material
-    private Renderer currentRenderer; // Currently highlighted object
+    public Camera mainCamera; // 主摄像机
+    public AudioSource chewingAudioSource; // 用于播放咀嚼音效的 AudioSource
+    public Material highlightMaterial; // 高亮材质
+    private Material originalMaterial; // 原始材质
+    private Renderer currentRenderer; // 当前高亮的物体
 
     void Start()
     {
-        // Initialize the audio source
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        // 检查 AudioSource 是否已设置
+        if (chewingAudioSource == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+            Debug.LogError("Chewing AudioSource is not assigned! Please assign an AudioSource in the Inspector.");
         }
     }
 
@@ -23,7 +21,7 @@ public class ItemPickup : MonoBehaviour
     {
         HighlightObject();
 
-        // Consume item with E
+        // 按下 E 键尝试拾取物品
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryConsume();
@@ -33,11 +31,11 @@ public class ItemPickup : MonoBehaviour
     void TryConsume()
     {
         // 定义检测距离
-        float detectionDistance = 5.0f; // 可根据需求调整这个值
+        float detectionDistance = 5.0f;
 
         // 定义检测范围的中心和半径
         Vector3 detectionCenter = mainCamera.transform.position + mainCamera.transform.forward * detectionDistance;
-        float detectionRadius = 2.0f; // 检测区域半径
+        float detectionRadius = 2.0f;
 
         // 获取球形范围内的所有碰撞体
         Collider[] hits = Physics.OverlapSphere(detectionCenter, detectionRadius);
@@ -48,15 +46,24 @@ public class ItemPickup : MonoBehaviour
             if (hit.CompareTag("Pickup"))
             {
                 // 播放咀嚼音效
-                if (chewingSound != null)
-                {
-                    audioSource.PlayOneShot(chewingSound);
-                }
+                PlayChewingSound();
 
                 // 销毁该物体
                 hit.gameObject.SetActive(false);
-                break; // 只处理一个物体，可视需求调整
+                break; // 只处理一个物体
             }
+        }
+    }
+
+    void PlayChewingSound()
+    {
+        if (chewingAudioSource != null)
+        {
+            chewingAudioSource.Play(); // 播放咀嚼音效
+        }
+        else
+        {
+            Debug.LogError("Chewing AudioSource is missing!");
         }
     }
 
@@ -91,5 +98,3 @@ public class ItemPickup : MonoBehaviour
         }
     }
 }
-
-        

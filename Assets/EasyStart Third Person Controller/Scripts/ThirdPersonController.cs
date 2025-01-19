@@ -34,22 +34,28 @@ public class ThirdPersonController : MonoBehaviour
     CharacterController cc;
 
     [Tooltip("Objects to reactivate during respawn.")]
-    public List<GameObject> objectsToReactivate; // List of objects to activate on respawn
+    public List<GameObject> objectsToReactivate;
 
-    public Vector3 respawnPosition;  // 存储出生点的位置
-    private Renderer characterRenderer;  // 角色的渲染器
-    private bool isDead = false;  // 角色是否死亡的状态
+    public Vector3 respawnPosition;
+    private Renderer characterRenderer;
+    private bool isDead = false;
     public GameObject deathPopupUI;
+
+    [Tooltip("AudioSource for footsteps sound.")]
+    public AudioSource footstepsAudioSource; // 脚步声
+
+    [Tooltip("AudioSource for jump sound.")]
+    public AudioSource jumpAudioSource; // 跳跃声
+
+    [Tooltip("AudioSource for death sound.")]
+    public AudioSource deathAudioSource; // 死亡音效
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-
-        // 获取角色的渲染器组件
         characterRenderer = GetComponent<Renderer>();
 
-        // Message informing the user that they forgot to add an animator
         if (animator == null)
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
 
@@ -57,7 +63,26 @@ public class ThirdPersonController : MonoBehaviour
 
         if (deathPopupUI != null)
         {
-            deathPopupUI.SetActive(false); // New line
+            deathPopupUI.SetActive(false);
+        }
+
+        if (footstepsAudioSource == null)
+        {
+            Debug.LogWarning("No AudioSource assigned for footsteps sound.");
+        }
+        else
+        {
+            footstepsAudioSource.loop = true; // 确保音效循环播放
+        }
+
+        if (jumpAudioSource == null)
+        {
+            Debug.LogWarning("No AudioSource assigned for jump sound.");
+        }
+
+        if (deathAudioSource == null)
+        {
+            Debug.LogWarning("No AudioSource assigned for death sound.");
         }
     }
 
@@ -65,78 +90,85 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (isDead)
         {
-            // 如果角色已经死亡，禁止所有输入
             return;
         }
 
-        // Input checkers
         inputHorizontal = Input.GetAxis("Horizontal");
         inputVertical = Input.GetAxis("Vertical");
         inputJump = Input.GetAxis("Jump") == 1f;
         inputSprint = Input.GetAxis("Fire3") == 1f;
         inputCrouch = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton1);
 
-        // Check if you pressed the crouch input key and change the player's state
         if (inputCrouch)
             isCrouching = !isCrouching;
 
-        // Run and Crouch animation
         if (cc.isGrounded && animator != null)
         {
-            // Crouch
             animator.SetBool("crouch", isCrouching);
 
-            // Run
             float minimumSpeed = 0.9f;
             animator.SetBool("run", cc.velocity.magnitude > minimumSpeed);
 
-            // Sprint
             isSprinting = cc.velocity.magnitude > minimumSpeed && inputSprint;
             animator.SetBool("sprint", isSprinting);
         }
 
-        // Jump animation
         if (animator != null)
             animator.SetBool("air", cc.isGrounded == false);
 
-        // Handle can jump or not
         if (inputJump && cc.isGrounded)
         {
             isJumping = true;
+
+            // 播放跳跃声音
+            if (jumpAudioSource != null)
+            {
+                jumpAudioSource.Play();
+            }
         }
 
-        HeadHittingDetect();
+        HandleFootstepAudio(); // 检测并处理脚步声
 
+        HeadHittingDetect();
         DetectDangerousCollision();
+    }
+
+    private void HandleFootstepAudio()
+    {
+        // 判断玩家是否正在移动
+        bool isMoving = (inputHorizontal != 0 || inputVertical != 0) && cc.isGrounded;
+
+        if (isMoving && !footstepsAudioSource.isPlaying)
+        {
+            footstepsAudioSource.Play(); // 播放脚步声
+        }
+        else if (!isMoving && footstepsAudioSource.isPlaying)
+        {
+            footstepsAudioSource.Stop(); // 停止脚步声
+        }
     }
 
     private void FixedUpdate()
     {
         if (isDead)
         {
-            // 如果角色已经死亡，停止所有移动
             return;
         }
 
-        // Sprinting velocity boost or crouching desacelerate
         float velocityAdittion = 0;
         if (isSprinting)
             velocityAdittion = sprintAdittion;
         if (isCrouching)
-            velocityAdittion = -(velocity * 0.50f); // -50% velocity
+            velocityAdittion = -(velocity * 0.50f);
 
-        // Direction movement
         float directionX = inputHorizontal * (velocity + velocityAdittion) * Time.deltaTime;
         float directionZ = inputVertical * (velocity + velocityAdittion) * Time.deltaTime;
         float directionY = 0;
 
-        // Jump handler
         if (isJumping)
         {
-            // Apply inertia and smoothness when climbing the jump
             directionY = Mathf.SmoothStep(jumpForce, jumpForce * 0.30f, jumpElapsedTime / jumpTime) * Time.deltaTime;
 
-            // Jump timer
             jumpElapsedTime += Time.deltaTime;
             if (jumpElapsedTime >= jumpTime)
             {
@@ -145,10 +177,8 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
 
-        // Add gravity to Y axis
         directionY = directionY - gravity * Time.deltaTime;
 
-        // --- Character rotation ---
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -167,8 +197,6 @@ public class ThirdPersonController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, angle, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
         }
-
-        // --- End rotation ---
 
         Vector3 verticalDirection = Vector3.up * directionY;
         Vector3 horizontalDirection = forward + right;
@@ -212,71 +240,66 @@ public class ThirdPersonController : MonoBehaviour
     {
         Debug.Log("角色死亡！");
 
+        // 播放死亡音效
+        if (deathAudioSource != null)
+        {
+            deathAudioSource.Play();
+        }
+
         if (deathPopupUI != null)
         {
-            deathPopupUI.SetActive(true); // Show the UI
+            deathPopupUI.SetActive(true);
         }
 
-        // 隐藏角色
         if (characterRenderer != null)
         {
-            characterRenderer.enabled = false;  // 禁用渲染器，角色消失
+            characterRenderer.enabled = false;
         }
 
-        // 禁用CharacterController，防止玩家操作
         if (cc != null)
         {
             cc.enabled = false;
         }
 
-        // 禁用所有输入
         isDead = true;
 
-        // 开始一个协程，5秒后复活
         StartCoroutine(RespawnAfterDelay());
     }
 
     private IEnumerator RespawnAfterDelay()
     {
-        // 等待3秒钟
         yield return new WaitForSeconds(3f);
 
         if (deathPopupUI != null)
         {
-            deathPopupUI.SetActive(false); // Hide the UI
+            deathPopupUI.SetActive(false);
         }
 
-        // Reactivate all objects in the list
         foreach (GameObject obj in objectsToReactivate)
         {
-            if (obj != null) // Ensure the object still exists
+            if (obj != null)
             {
                 obj.SetActive(true);
             }
         }
 
-        // 复活角色
         Respawn();
     }
 
     private void Respawn()
     {
-        // 复活时恢复角色的位置
         transform.position = respawnPosition;
 
-        // 恢复渲染器
         if (characterRenderer != null)
         {
-            characterRenderer.enabled = true;  // 启用渲染器，角色重新显示
+            characterRenderer.enabled = true;
         }
 
-        // 恢复CharacterController
         if (cc != null)
         {
             cc.enabled = true;
         }
 
-        // 恢复输入控制
         isDead = false;
 
         Debug.Log("角色复活！");

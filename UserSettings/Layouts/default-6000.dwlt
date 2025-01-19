@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 709.3334
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 16977
+  controlID: 19939
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 16978
+  controlID: 19849
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 904.5, y: 440.99994}
   m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
+  m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 00000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
@@ -875,9 +875,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -7.5906405, y: 0.28825462, z: -14.8}
+    m_Target: {x: -2.6400003, y: 4.419998, z: -97.91}
     speed: 2
-    m_Value: {x: -7.5906405, y: 0.28825462, z: -14.8}
+    m_Value: {x: -2.6400003, y: 4.419998, z: -97.91}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -923,13 +923,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0022496327, y: -0.9847339, z: 0.17391634, w: -0.01269469}
+    m_Target: {x: 0.31347188, y: 0.62947494, z: -0.30779248, w: 0.6410023}
     speed: 2
-    m_Value: {x: -0.0022495044, y: -0.9846778, z: 0.17390643, w: -0.012693967}
+    m_Value: {x: 0.31345254, y: 0.6294361, z: -0.30777347, w: 0.6409627}
   m_Size:
-    m_Target: 0.5437141
+    m_Target: 0.9049965
     speed: 2
-    m_Value: 0.5437141
+    m_Value: 0.9049965
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -999,23 +999,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bcb6feff
-      m_LastClickedID: -84292
-      m_ExpandedIDs: 6c20ffff6067ffff3676ffffae7affff6a7cffff0a7dffffa67dffff4a7effff4e7fffff0c8dffff0490ffffae91ffff20fbffffb2b3000026b500006ab90000ccbc0000e4bc000080be0000bebe0000e6be0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 7ad2feffc0dafeff0653ffff3053ffff5c53ffff1cd2fffffce1ffff10e9ffffcaf4ffff20fbffff5eb7000076b7000082bf000086bf0000cabf000058c0000086c00000b8c000001844010082460100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Hint 2
+        m_OriginalName: Hint 2
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 49178
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/#NVJOB Water Shaders V2/Examples Water/Prefabs
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b0230000
     m_LastClickedID: 9136
-    m_ExpandedIDs: ffffffff0000000018020000bcab0000c0ab0000c2ab00007ab0000086b00000a2b00000aab00000acb0000018b10000fcb1000006b200000cb200000eb2000010b2000012b2000014b2000018b2000006b600000eb600001ab600001eb6000020b60000
+    m_ExpandedIDs: ffffffff00000000180200000eb0000010b0000012b0000014b0000016b0000018b000001ab000001cb000001eb0000020b0000022b0000024b0000026b0000028b000002ab000002cb000002eb0000030b0000032b0000034b0000036b0000038b000003ab000003cb000003eb0000024b10000d0b10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1117,10 +1117,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 60}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000018020000bcab0000c0ab0000c2ab00006ab000007ab0000086b00000a2b00000aab00000acb000000eb1000016b1000018b10000fcb1000006b200000cb200000eb2000010b2000012b2000014b2000018b2000006b600000eb600001ab600001eb6000020b60000
+    m_ExpandedIDs: ffffffff00000000180200000eb0000010b0000012b0000014b0000016b0000018b000001ab000001cb000001eb0000020b0000022b0000024b0000026b0000028b000002ab000002cb000002eb0000030b0000032b0000034b0000036b0000038b000003ab000003cb000003eb0000024b10000d0b10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1221,7 +1221,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 648
+  m_LastVerticalScrollValue: 648.00006
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

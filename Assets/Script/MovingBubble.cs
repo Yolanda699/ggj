@@ -1,21 +1,32 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class MovingBubble : MonoBehaviour
 {
-    public Vector3 startPosition; 
-    public Vector3 endPosition;   
-    public float moveDuration = 4f; // �ƶ�����ʱ�䣨�룩
-    public float minInterval = 1f; // ��С���ʱ�䣨�룩
-    public float maxInterval = 3f; // �����ʱ�䣨�룩
+    public Vector3 startPosition;
+    public Vector3 endPosition;
+    public float moveDuration = 4f; // 移动持续时间（秒）
+    public float minInterval = 1f; // 最小间隔时间（秒）
+    public float maxInterval = 3f; // 最大间隔时间（秒）
+
+    [Tooltip("AudioSource for bubble sound.")]
+    public AudioSource bubbleAudioSource; // 泡泡音效
+    public Transform player; // 玩家 Transform
+    public float maxDistance = 10f; // 声音完全消失的最大距离
 
     void Start()
     {
-        // ��ʼ��λ��
+        // 初始化位置
         transform.position = startPosition;
 
-        // ��ʼѭ���ƶ�
+        // 开始循环移动
         StartCoroutine(MoveAndResetRoutine());
+    }
+
+    void Update()
+    {
+        // 根据玩家距离调整音量
+        AdjustAudioVolumeBasedOnDistance();
     }
 
     IEnumerator MoveAndResetRoutine()
@@ -24,29 +35,60 @@ public class MovingBubble : MonoBehaviour
         {
             float elapsedTime = 0f;
 
-            // ������ƶ����յ�
+            // 在泡泡开始移动时播放音效
+            if (bubbleAudioSource != null)
+            {
+                bubbleAudioSource.Play();
+            }
+
+            // 从起点移动到终点
             while (elapsedTime < moveDuration)
             {
                 float t = Mathf.SmoothStep(0, 1, elapsedTime / moveDuration);
                 transform.position = Vector3.Lerp(startPosition, endPosition, t);
                 elapsedTime += Time.deltaTime;
-                yield return null; // �ȴ���һ֡
+                yield return null; // 等待下一帧
             }
 
-            // ȷ��λ�õ����յ�
+            // 确保位置到达终点
             transform.position = endPosition;
 
-            // �ȴ�һС��ʱ�䣬ȷ���ƶ����
+            // 停止音效（如果需要停止）
+            if (bubbleAudioSource != null)
+            {
+                bubbleAudioSource.Stop();
+            }
+
+            // 等待一小段时间，确保移动完成
             yield return new WaitForSeconds(0.1f);
 
-            // ���û����
+            // 重置到起点
             transform.position = startPosition;
 
-            // ������ɼ��ʱ��
+            // 随机生成间隔时间
             float randomInterval = Random.Range(minInterval, maxInterval);
 
-            // �ȴ�������ʱ��
+            // 等待随机间隔时间
             yield return new WaitForSeconds(randomInterval);
+        }
+    }
+
+    private void AdjustAudioVolumeBasedOnDistance()
+    {
+        if (bubbleAudioSource == null || player == null) return;
+
+        // 计算玩家与泡泡的距离
+        float distance = Vector3.Distance(player.position, transform.position);
+
+        // 如果玩家距离小于 maxDistance，则根据距离调整音量；否则音量为 0
+        if (distance < maxDistance)
+        {
+            float volume = Mathf.Lerp(1f, 0f, distance / maxDistance); // 距离越远音量越小
+            bubbleAudioSource.volume = volume;
+        }
+        else
+        {
+            bubbleAudioSource.volume = 0f;
         }
     }
 }

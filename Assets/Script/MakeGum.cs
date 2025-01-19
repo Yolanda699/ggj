@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 
 public class MakeGum : MonoBehaviour
 {
@@ -12,9 +12,13 @@ public class MakeGum : MonoBehaviour
     [Tooltip("The distance within which the player can interact to make gum.")]
     public float interactionDistance = 3f;
 
+    [Tooltip("The AudioSource to play when Q is pressed.")]
+    public AudioSource gumAudioSource; // Assign an AudioSource in the Inspector
+
     private Transform player; // Reference to the player's transform
     private bool isPlayerClose = false; // Tracks if the player is near the gum activation point
     private bool isGumActive = false; // Tracks if the gum is active
+    private bool isAudioPlaying = false; // Tracks if the audio is currently playing
 
     void Start()
     {
@@ -26,6 +30,12 @@ public class MakeGum : MonoBehaviour
 
         // Optionally, find the player by tag
         player = GameObject.FindWithTag("Player").transform;
+
+        // Ensure the AudioSource is set
+        if (gumAudioSource == null)
+        {
+            Debug.LogError("No AudioSource assigned for gum activation!");
+        }
     }
 
     void Update()
@@ -39,13 +49,10 @@ public class MakeGum : MonoBehaviour
                 isPlayerClose = true;
             }
 
-            // Activate the gum when Q is pressed
-            if (Input.GetKeyDown(KeyCode.Q) && gum != null)
+            // Activate the gum after audio when Q is pressed
+            if (Input.GetKeyDown(KeyCode.Q) && gum != null && !isAudioPlaying)
             {
-                isGumActive = !isGumActive; // Toggle the gum state
-                gum.SetActive(isGumActive);
-                Debug.Log("Gum is now " + (isGumActive ? "Active" : "Inactive"));
-                Destroy(hintText);
+                StartCoroutine(ActivateGumAfterAudio());
             }
         }
         else
@@ -72,5 +79,34 @@ public class MakeGum : MonoBehaviour
         {
             hintText.SetActive(false);
         }
+    }
+
+    IEnumerator ActivateGumAfterAudio()
+    {
+        isAudioPlaying = true;
+
+        // Play the audio
+        if (gumAudioSource != null)
+        {
+            gumAudioSource.Play();
+            yield return new WaitForSeconds(gumAudioSource.clip.length); // Wait for the audio to finish
+        }
+        else
+        {
+            Debug.LogWarning("Gum AudioSource is missing or not set!");
+        }
+
+        // Activate or deactivate the gum
+        isGumActive = !isGumActive;
+        gum.SetActive(isGumActive);
+        Debug.Log("Gum is now " + (isGumActive ? "Active" : "Inactive"));
+
+        // Set the hint text inactive instead of destroying it
+        if (hintText != null)
+        {
+            hintText.SetActive(false);
+        }
+
+        isAudioPlaying = false;
     }
 }
