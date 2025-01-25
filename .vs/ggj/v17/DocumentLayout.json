@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\GameProject\\GJJ 2025\\ggj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\makegum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\interactiveobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|c:\\gameproject\\gjj 2025\\ggj\\assets\\easystart third person controller\\scripts\\thirdpersoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\easystart third person controller\\scripts\\thirdpersoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\easystart third person controller\\scripts\\thirdpersoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\easystart third person controller\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9F57A03-0DD7-BCE2-65A6-69420257F749}|Assembly-CSharp.csproj|C:\\GameProject\\GJJ 2025\\ggj\\assets\\script\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,24 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ThirdPersonController.cs",
-              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
-              "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
-              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
-              "RelativeToolTip": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
-              "ViewState": "AgIAACABAAAAAAAAAAA7wDgBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T22:21:50.945Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MakeGum.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MakeGum.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MakeGum.cs",
@@ -84,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InteractiveObject.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\InteractiveObject.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\InteractiveObject.cs",
@@ -92,12 +79,11 @@
               "RelativeToolTip": "Assets\\Script\\InteractiveObject.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAgwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:55:40.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T17:55:40.419Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MovingBubble.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\MovingBubble.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MovingBubble.cs",
@@ -105,24 +91,36 @@
               "RelativeToolTip": "Assets\\Script\\MovingBubble.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAiwF4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T20:54:23.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T20:54:23.897Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
               "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\GameManager.cs",
               "RelativeToolTip": "Assets\\Script\\GameManager.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAiwDQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T20:28:14.478Z"
+              "WhenOpened": "2025-01-18T20:28:14.478Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ThirdPersonController.cs",
+              "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "ToolTip": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "RelativeToolTip": "Assets\\EasyStart Third Person Controller\\Scripts\\ThirdPersonController.cs",
+              "ViewState": "AgIAACABAAAAAAAAAAA7wDgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T22:21:50.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Deactive.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\Script\\Deactive.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Deactive.cs",
@@ -134,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CameraController.cs",
               "DocumentMoniker": "C:\\GameProject\\GJJ 2025\\ggj\\Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
               "RelativeDocumentMoniker": "Assets\\EasyStart Third Person Controller\\Scripts\\CameraController.cs",
