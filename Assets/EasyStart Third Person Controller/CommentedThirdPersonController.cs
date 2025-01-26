@@ -44,15 +44,13 @@ public class CommentedThirdPersonController : MonoBehaviour
     // Variable controlling the time the player spent in the air. Explained further below.
     float jumpElapsedTime = 0;
 
-    
-
     void Start()
     {
         // Starts any of the above variables when starting the game
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
-
+    
 
     // Update is only being used here to identify keys and trigger animations
     void Update()

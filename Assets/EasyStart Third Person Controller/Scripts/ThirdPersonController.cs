@@ -49,6 +49,8 @@ public class ThirdPersonController : MonoBehaviour
 
     [Tooltip("AudioSource for death sound.")]
     public AudioSource deathAudioSource; // 死亡音效
+   
+ 
 
     void Start()
     {
@@ -85,7 +87,9 @@ public class ThirdPersonController : MonoBehaviour
             Debug.LogWarning("No AudioSource assigned for death sound.");
         }
     }
-
+  
+   
+  
     void Update()
     {
         if (isDead)
