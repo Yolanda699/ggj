@@ -2952,7 +2952,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5246,7 +5246,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5319,7 +5319,7 @@ PrefabInstance:
       objectReference: {fileID: 1943237565}
     - target: {fileID: 4158197970051907151, guid: 6a1abea4da4253c4188bf0e2c422cc0d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8249113815843068973, guid: 6a1abea4da4253c4188bf0e2c422cc0d, type: 3}
       propertyPath: m_Name
@@ -5367,6 +5367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6374597701898606660, guid: 6a1abea4da4253c4188bf0e2c422cc0d, type: 3}
+    - {fileID: 7077433462895969432, guid: 6a1abea4da4253c4188bf0e2c422cc0d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -6198,7 +6199,7 @@ GameObject:
   - component: {fileID: 913186795}
   m_Layer: 0
   m_Name: Gum 3
-  m_TagString: Pickup
+  m_TagString: Gum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7818,7 +7819,7 @@ GameObject:
   - component: {fileID: 1138300708}
   m_Layer: 0
   m_Name: Gum 1
-  m_TagString: Pickup
+  m_TagString: Gum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8129,7 +8130,7 @@ GameObject:
   - component: {fileID: 1164955162}
   m_Layer: 0
   m_Name: Gum 2
-  m_TagString: Pickup
+  m_TagString: Gum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10548,12 +10549,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2069740001}
+  - {fileID: 1618696703}
   - {fileID: 1930206627}
   - {fileID: 948815365}
   - {fileID: 891200490}
   - {fileID: 1396122417}
   - {fileID: 331025970}
-  - {fileID: 1618696703}
   - {fileID: 1280966400}
   - {fileID: 156397193}
   - {fileID: 1152205317}
@@ -12858,7 +12859,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13081,7 +13082,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
