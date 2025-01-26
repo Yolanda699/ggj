@@ -2,23 +2,25 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private float fireOffsetTime = 1f;
     private float nowTime = 0;
     public Transform[] shootPos;
     public GameObject bulletObject;
-    private void Start()
-    {
 
-    }
+    bool fireState = false;
+
     private void Update()
     {
         nowTime += Time.deltaTime;
         if (nowTime > fireOffsetTime)
         {
-            Fire();
-            nowTime = 0;
+            if (fireState == true)
+            {
+                Fire();
+                nowTime = 0;
+            }
         }
     }
     public void Fire()
@@ -31,5 +33,10 @@ public class enemy : MonoBehaviour
             bullet.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
         }
+    }
+
+    public void ActivateFire()
+    {
+        fireState = true;
     }
 }

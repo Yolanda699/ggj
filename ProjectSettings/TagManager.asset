@@ -7,6 +7,9 @@ TagManager:
   - Pickup
   - Danger
   - Wall
+  - Gum
+  - Damage1
+  - Damage2
   layers:
   - Default
   - TransparentFX

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
 {
-    [Tooltip("Speed ​​at which the character moves. It is not affected by gravity or jumping.")]
+    [Tooltip("Speed ​​​at which the character moves. It is not affected by gravity or jumping.")]
     public float velocity = 5f;
     [Tooltip("This value is added to the speed value while the character is sprinting.")]
     public float sprintAdittion = 3.5f;
@@ -22,6 +20,7 @@ public class ThirdPersonController : MonoBehaviour
     bool isJumping = false;
     bool isSprinting = false;
     bool isCrouching = false;
+    bool jumpState = false;
 
     // Inputs
     float inputHorizontal;
@@ -32,80 +31,53 @@ public class ThirdPersonController : MonoBehaviour
 
     Animator animator;
     CharacterController cc;
-
-    [Tooltip("Objects to reactivate during respawn.")]
-    public List<GameObject> objectsToReactivate;
-
-    public Vector3 respawnPosition;
-    private Renderer characterRenderer;
-    private bool isDead = false;
-    public GameObject deathPopupUI;
-
-    [Tooltip("AudioSource for footsteps sound.")]
-    public AudioSource footstepsAudioSource; // 脚步声
-
-    [Tooltip("AudioSource for jump sound.")]
-    public AudioSource jumpAudioSource; // 跳跃声
-
-    [Tooltip("AudioSource for death sound.")]
-    public AudioSource deathAudioSource; // 死亡音效
-   
- 
+    private ShieldManager shieldManager; // 护盾管理
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        characterRenderer = GetComponent<Renderer>();
+        shieldManager = GetComponent<ShieldManager>();
 
         if (animator == null)
-            Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
+            Debug.LogWarning("没有找到 Animator 组件，动画将无法正常运行。");
 
-        respawnPosition = transform.position;
-
-        if (deathPopupUI != null)
-        {
-            deathPopupUI.SetActive(false);
-        }
-
-        if (footstepsAudioSource == null)
-        {
-            Debug.LogWarning("No AudioSource assigned for footsteps sound.");
-        }
-        else
-        {
-            footstepsAudioSource.loop = true; // 确保音效循环播放
-        }
-
-        if (jumpAudioSource == null)
-        {
-            Debug.LogWarning("No AudioSource assigned for jump sound.");
-        }
-
-        if (deathAudioSource == null)
-        {
-            Debug.LogWarning("No AudioSource assigned for death sound.");
-        }
+        if (shieldManager == null)
+            Debug.LogWarning("没有找到 ShieldManager 脚本，护盾功能将不可用。");
     }
-  
-   
-  
+
     void Update()
     {
-        if (isDead)
-        {
-            return;
-        }
-
+        // Input checkers
         inputHorizontal = Input.GetAxis("Horizontal");
         inputVertical = Input.GetAxis("Vertical");
         inputJump = Input.GetAxis("Jump") == 1f;
         inputSprint = Input.GetAxis("Fire3") == 1f;
         inputCrouch = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton1);
 
+        // Toggle crouch state
         if (inputCrouch)
             isCrouching = !isCrouching;
 
+        // Animation handling
+        HandleAnimations();
+
+        // Jump handling
+        HandleJump();
+
+        HeadHittingDetect();
+
+        DetectDangerousCollision();
+    }
+
+    private void FixedUpdate()
+    {
+        // Movement calculations
+        HandleMovement();
+    }
+
+    private void HandleAnimations()
+    {
         if (cc.isGrounded && animator != null)
         {
             animator.SetBool("crouch", isCrouching);
@@ -119,46 +91,10 @@ public class ThirdPersonController : MonoBehaviour
 
         if (animator != null)
             animator.SetBool("air", cc.isGrounded == false);
-
-        if (inputJump && cc.isGrounded)
-        {
-            isJumping = true;
-
-            // 播放跳跃声音
-            if (jumpAudioSource != null)
-            {
-                jumpAudioSource.Play();
-            }
-        }
-
-        HandleFootstepAudio(); // 检测并处理脚步声
-
-        HeadHittingDetect();
-        DetectDangerousCollision();
     }
 
-    private void HandleFootstepAudio()
+    private void HandleMovement()
     {
-        // 判断玩家是否正在移动
-        bool isMoving = (inputHorizontal != 0 || inputVertical != 0) && cc.isGrounded;
-
-        if (isMoving && !footstepsAudioSource.isPlaying)
-        {
-            footstepsAudioSource.Play(); // 播放脚步声
-        }
-        else if (!isMoving && footstepsAudioSource.isPlaying)
-        {
-            footstepsAudioSource.Stop(); // 停止脚步声
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (isDead)
-        {
-            return;
-        }
-
         float velocityAdittion = 0;
         if (isSprinting)
             velocityAdittion = sprintAdittion;
@@ -172,8 +108,8 @@ public class ThirdPersonController : MonoBehaviour
         if (isJumping)
         {
             directionY = Mathf.SmoothStep(jumpForce, jumpForce * 0.30f, jumpElapsedTime / jumpTime) * Time.deltaTime;
-
             jumpElapsedTime += Time.deltaTime;
+
             if (jumpElapsedTime >= jumpTime)
             {
                 isJumping = false;
@@ -202,11 +138,25 @@ public class ThirdPersonController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
         }
 
-        Vector3 verticalDirection = Vector3.up * directionY;
-        Vector3 horizontalDirection = forward + right;
-
-        Vector3 moviment = verticalDirection + horizontalDirection;
+        Vector3 moviment = (Vector3.up * directionY) + (forward + right);
         cc.Move(moviment);
+    }
+
+    // 将跳跃功能提取为一个函数
+    private void HandleJump()
+    {
+        if (inputJump && cc.isGrounded)
+        {
+            if(jumpState == true)
+            {
+                isJumping = true;
+            }   
+        }
+    }
+
+    public void ActivateJump()
+    {
+        jumpState = true;
     }
 
     void HeadHittingDetect()
@@ -234,83 +184,22 @@ public class ThirdPersonController : MonoBehaviour
         {
             if (hit.CompareTag("Danger"))
             {
-                HandleDeath();
+                GetComponent<DeathHandle>()?.HandleDeath();
+                break;
+            }
+
+            if (hit.CompareTag("Damage1"))
+            {
+                GetComponent<DeathHandle>()?.HandleDeath();
+                break;
+            }
+
+            if (hit.CompareTag("Damage2"))
+            {
+                GetComponent<DeathHandle>()?.HandleDeath();
                 break;
             }
         }
     }
-
-    private void HandleDeath()
-    {
-        Debug.Log("角色死亡！");
-
-        // 播放死亡音效
-        if (deathAudioSource != null)
-        {
-            deathAudioSource.Play();
-        }
-
-        if (deathPopupUI != null)
-        {
-            deathPopupUI.SetActive(true);
-        }
-
-        if (characterRenderer != null)
-        {
-            characterRenderer.enabled = false;
-        }
-
-        if (cc != null)
-        {
-            cc.enabled = false;
-        }
-
-        isDead = true;
-
-        StartCoroutine(RespawnAfterDelay());
-    }
-
-    private IEnumerator RespawnAfterDelay()
-    {
-        yield return new WaitForSeconds(3f);
-
-        if (deathPopupUI != null)
-        {
-            deathPopupUI.SetActive(false);
-        }
-
-        foreach (GameObject obj in objectsToReactivate)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-
-        Respawn();
-    }
-
-    private void Respawn()
-    {
-        transform.position = respawnPosition;
-
-        if (characterRenderer != null)
-        {
-            characterRenderer.enabled = true;
-        }
-
-        if (cc != null)
-        {
-            cc.enabled = true;
-        }
-
-        isDead = false;
-
-        Debug.Log("角色复活！");
-
-        foreach (GameObject pickup in GameObject.FindGameObjectsWithTag("Pickup"))
-        {
-            pickup.SetActive(true);
-        }
-    }
 }
+

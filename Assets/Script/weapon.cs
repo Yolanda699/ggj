@@ -6,8 +6,8 @@ public class weapon : MonoBehaviour
 {
     public GameObject bullet;
     public Transform[] shootPos;
-    private enemy fatherObj;
-    public void SetFather(enemy obj)
+    private Enemy fatherObj;
+    public void SetFather(Enemy obj)
     {
         fatherObj = obj;
     }

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BulletObject : MonoBehaviour 
 {
     private float moveSpeed = 5;
-    private enemy fatherObj;
+    private Enemy fatherObj;
     
     private void Start()
     {
