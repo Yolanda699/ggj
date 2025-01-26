@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class TimeShield : MonoBehaviour
 {
-    // 在物体碰撞时触发
+    [Header("Audio Source for Shield Interaction")]
+    public AudioSource shieldAudioSource; // AudioSource to play sound when the shield interacts
+
+    // Triggered when another collider enters this object's trigger collider
     private void OnTriggerEnter(Collider other)
     {
-        // 检查碰撞的物体是否是tag为"damage2"
+        // Check if the collided object has the tag "Damage2"
         if (other.CompareTag("Damage2"))
         {
-            // 输出提示信息
-            Debug.Log("Damage2物体被时间护盾击中，摧毁物体！");
+            // Log a message to the console
+            Debug.Log("Damage2 object collided with the Time Shield, destroying the object!");
 
-            // 摧毁碰撞物体
+            // Play the sound if an AudioSource is assigned
+            if (shieldAudioSource != null && !shieldAudioSource.isPlaying)
+            {
+                shieldAudioSource.Play();
+            }
+
+            // Destroy the collided object
             Destroy(other.gameObject);
         }
     }
 }
-
-

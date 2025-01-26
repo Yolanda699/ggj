@@ -14,6 +14,13 @@ public class ThirdPersonController : MonoBehaviour
     [Tooltip("Force that pulls the player down. Changing this value causes all movement, jumping and falling to be changed as well.")]
     public float gravity = 9.8f;
 
+    [Header("Audio Sources")]
+    public AudioSource walkAudioSource;  // AudioSource for walking
+    public AudioSource jumpAudioSource; // AudioSource for jumping
+    public AudioSource deathAudioSource; // AudioSource for death
+
+    private bool hasPlayedDeathSound = false; // Flag to track if the death sound has been played
+
     float jumpElapsedTime = 0;
 
     // Player states
@@ -31,7 +38,7 @@ public class ThirdPersonController : MonoBehaviour
 
     Animator animator;
     CharacterController cc;
-    private ShieldManager shieldManager; // 护盾管理
+    private ShieldManager shieldManager;
 
     void Start()
     {
@@ -44,6 +51,15 @@ public class ThirdPersonController : MonoBehaviour
 
         if (shieldManager == null)
             Debug.LogWarning("没有找到 ShieldManager 脚本，护盾功能将不可用。");
+
+        if (walkAudioSource == null)
+            Debug.LogError("Walk AudioSource is not assigned! Please assign it in the Inspector.");
+
+        if (jumpAudioSource == null)
+            Debug.LogError("Jump AudioSource is not assigned! Please assign it in the Inspector.");
+
+        if (deathAudioSource == null)
+            Debug.LogError("Death AudioSource is not assigned! Please assign it in the Inspector.");
     }
 
     void Update()
@@ -68,6 +84,17 @@ public class ThirdPersonController : MonoBehaviour
         HeadHittingDetect();
 
         DetectDangerousCollision();
+
+        // Play walking sound
+        if (cc.isGrounded && cc.velocity.magnitude > 0.1f && !walkAudioSource.isPlaying)
+        {
+            walkAudioSource.loop = true;
+            walkAudioSource.Play();
+        }
+        else if (cc.velocity.magnitude <= 0.1f)
+        {
+            walkAudioSource.Stop();
+        }
     }
 
     private void FixedUpdate()
@@ -142,15 +169,23 @@ public class ThirdPersonController : MonoBehaviour
         cc.Move(moviment);
     }
 
-    // 将跳跃功能提取为一个函数
     private void HandleJump()
     {
         if (inputJump && cc.isGrounded)
         {
-            if(jumpState == true)
+            if (jumpState)
             {
                 isJumping = true;
-            }   
+                PlaySound(jumpAudioSource);
+            }
+        }
+    }
+
+    private void PlaySound(AudioSource audioSource)
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 
@@ -182,24 +217,24 @@ public class ThirdPersonController : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            if (hit.CompareTag("Danger"))
+            if ((hit.CompareTag("Danger") || hit.CompareTag("Damage1") || hit.CompareTag("Damage2")) && !hasPlayedDeathSound)
             {
-                GetComponent<DeathHandle>()?.HandleDeath();
-                break;
-            }
+                // Play death sound once
+                PlaySound(deathAudioSource);
 
-            if (hit.CompareTag("Damage1"))
-            {
+                // Handle death logic
                 GetComponent<DeathHandle>()?.HandleDeath();
-                break;
-            }
 
-            if (hit.CompareTag("Damage2"))
-            {
-                GetComponent<DeathHandle>()?.HandleDeath();
+                // Set flag to prevent replaying the sound
+                hasPlayedDeathSound = true;
                 break;
             }
         }
     }
-}
 
+    // Call this method to reset the flag when the player respawns
+    public void ResetDeathSound()
+    {
+        hasPlayedDeathSound = false;
+    }
+}
